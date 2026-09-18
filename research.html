@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<title>Zheng Fan's personal website</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="second.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+    <style>
+        /* Sidebar style */
+        #sidebar {
+            width: 300px;
+            position: fixed;
+            top: 20px; /* Adjust to your header height */
+            left: 0;
+            background-color: #f4f4f4;
+            padding-top: 20px;
+            padding-left: 20px;
+            border-right: 3px solid #ccc;
+            height: 100%;
+        }
+
+        /* Sidebar links */
+        #sidebar a {
+            display: block;
+            padding: 8px 0;
+            color: #111D3D;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        #sidebar a:hover {
+            background-color: #ddd;
+            color: #000;
+        }
+
+        /* Main content area */
+        #main-content {
+            margin-left: 220px; /* Space for the sidebar */
+            padding: 20px;
+        }
+
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add some padding to sections to make it easier to spot when scrolling */
+        section {
+            padding: 220px 0;
+            margin: 220px 0;
+        }
+
+                #Welcome!, #Research Interests, #Research and Working Papers, #Conference and Seminar Presentations, #Academic and Teaching Experience, #Skills {
+            scroll-margin-top: 220px; /* Adjust this value to match your navbar height */
+            padding-top: 230px; /* Give some space to the sections */
+        }
+
+      /* --- SHARED GAME STYLES --- */
+        .game-container-style {
+            position: relative;
+            width: 100%;
+            max-width: 600px; 
+            height: 400px;
+            margin: 20px 0;
+            background-color: #70c5ce;
+            overflow: hidden;
+            border: 4px solid #2c3e50;
+            border-radius: 8px;
+            font-family: 'Press Start 2P', cursive;
+            outline: none;
+        }
+
+        .game-canvas-style {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .game-ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game-message-box {
+            background: #ded895;
+            border: 4px solid #543847;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+            pointer-events: auto;
+            display: none;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .game-title {
+            color: #fff;
+            text-shadow: 3px 3px 0 #000;
+            font-size: 28px;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .game-text {
+            color: #543847;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .game-btn {
+            background: #e96030;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            border-bottom: 4px solid #9e3b1a;
+            text-transform: uppercase;
+            min-width: 120px;
+            margin-top: 10px;
+        }
+
+        .game-btn:active {
+            transform: translateY(4px);
+            border-bottom: 0px;
+        }
+        
+        .score-display-style {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            text-shadow: 3px 3px 0 #000;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Specific Bomberman Styles */
+        #bomber-game-container {
+            background-color: #5ea75e; /* Grass Green */
+        }
+
+        #bomber-game-over-screen .game-message-box, #bomber-start-screen .game-message-box {
+            background-color: #ddd;
+            border-color: #333;
+        }
+
+        #bomber-game-over-screen h1, #bomber-start-screen h1 {
+            color: #333;
+            text-shadow: 2px 2px 0 #fff;
+        }
+
+        #bomber-score-display {
+             color: #fff;
+             text-shadow: 2px 2px 0 #000;
+             font-size: 14px; /* Much smaller font size */
+             top: 10px; /* Adjusted position */
+             background-color: rgba(0,0,0,0.3); /* Slight background for readability */
+             padding: 5px;
+             width: auto;
+             left: 50%;
+             transform: translateX(-50%);
+             border-radius: 4px;
+        }
+
+
+    </style>
+ <!-- Font Awesome (for GitHub, Email, LinkedIn, ORCID icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Academicons (for Google Scholar) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+
+</head>
+<body>
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+  <div class="header-container">
+
+    <!-- Left: Name and Title -->
+<div class="header-left">
+  <h1><span style="font-weight: bold; color: #d63384;">Zheng</span> Fan</h1>
+  <h3>PhD in Economics</h3>
+</div>
+
+ <!-- Right: Contact Info -->
+    <div class="header-right">
+      <div class="contact-info">
+<!-- Icon block aligned to the right -->
+<div style="display: flex; justify-content: flex-end; gap: 12px; align-items: center; margin-top: 18px;">
+  <a href="mailto:zhengfan2015@gmail.com" target="_blank" style="display: inline-flex; align-items: center; color: #333;">
+    <i class="fas fa-envelope" style="font-size: 20px;" title="Email"></i>
+  </a>
+
+  <a href="https://github.com/zhengf1" target="_blank" style="display: inline-flex; align-items: center; color: #333;">
+    <i class="fab fa-github" style="font-size: 20px;" title="GitHub"></i>
+  </a>
+  <a href="https://scholar.google.com/citations?user=kObE768AAAAJ" target="_blank" style="display: inline-flex; align-items: center; color: #4285F4;">
+    <i class="fas fa-graduation-cap" style="font-size: 20px;" title="Google Scholar"></i>
+  </a>
+  
+  <a href="https://www.linkedin.com/in/zheng-fan-11849836b" target="_blank" style="display: inline-flex; align-items: center; color: #0077b5;">
+    <i class="fab fa-linkedin" style="font-size: 20px;" title="LinkedIn"></i>
+  </a>
+
+  <a href="https://orcid.org/0000-0002-5203-4857" target="_blank" style="display: inline-flex; align-items: center; color: #a6ce39;">
+    <i class="fab fa-orcid" style="font-size: 20px;" title="ORCID"></i>
+  </a>
+</div>
+        <p>
+          <a id="pdf" href="cv-page.html">Download CV</a>
+        </p>
+      </div>
+    </div>
+
+  </div> <!--// .header-container -->
+</div> <!--// #hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+ 
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+<div id="navbar">
+<a href="index.html">Home</a>
+<a href="research.html" class="active">Research</a>
+<a href="teaching.html">Teaching</a>
+<a href="skills.html">Others</a>
+         <!-- Add more links as needed -->
+</div>
+ 
+ 
+  <div style="margin-bottom: 30px;" id="Research and Working Papers">
+  <h3 style="color: #2c3e50;">Research and Working Papers</h3>
+  <hr style="border: none; height: 1px; background-color: #ddd; margin: 8px 0;">
+
+
+<p style="margin: 0 0 8px 0;">
+     <strong style="color: #d63384;">Bayesian Model Ensembling with Regularised Predictive Synthesis </strong>
+  </p>
+<div>
+  <p>
+   <span class="paper-links" style="font-size: 0.95rem;">
+  [
+  Job Market Paper: 
+  <a href="https://drive.google.com/file/d/13BnlJRaggg3YICvdml_a8Ei7IoEQGMV5/view?usp=drive_link" target="_blank">latest version</a>,
+   <a href="https://drive.google.com/file/d/1F9MIjxwl478KkVjVPBg7mlraKvSNJlMA/view?usp=drive_link" target="_blank"> initial version</a>
+  |
+   Code 
+  ]
+</span>
+
+     <span class="toggle-header arrow" onclick="toggleAbstract(this)">Click to expand abstract</span>
+    <span class="abstract-text" style="display: none;">
+
+   <em>
+This paper develops a new Bayesian framework for forecast combination that embeds a Vector Error Correction Model structure within a latent dynamic factor representation for model weights. By imposing cointegration across the latent weight structure, the framework establishes a structured yet flexible regularization on their long-run behavior while allowing for short-term deviations. The specification enables the ensemble weights to evolve around steady states and to adjust rapidly toward a new steady state when the predictive environment changes. Monte Carlo studies and empirical applications to economic growth and inflation forecasting show that the proposed approach delivers substantial improvements in predictive performance over cutting-edge methods. The framework incorporates key features found in state-of-the-art approaches by providing flexible weight dynamics that permit non-convex weights to be negative and allow quick transitions across multiple steady configurations simultaneously.
+
+  </em>
+</span>
+
+</div>
+
+
+
+  <p style="margin: 0 0 8px 0;">
+     <strong style="color: #d63384;">A New Perspective of the Meese-Rogoff Puzzle: Application of Sparse Dynamic Shrinkage</strong>
+  </p>
+<div>
+  <p>
+    [ <a href="https://arxiv.org/abs/2507.14408" target="_blank">Working Paper</a>, <b>R&R</b> at the <i>Journal of Applied Econometrics</i> | Code ] 
+     <span class="toggle-header arrow" onclick="toggleAbstract(this)">Click to expand abstract</span>
+    <span class="abstract-text" style="display: none;">
+      <em>
+        We propose the Markov Switching Dynamic Shrinkage process (MSDSP), nesting the Dynamic Shrinkage Process (DSP) of Kowal et al. (2019). We revisit the Meese-Rogoff puzzle (Meese and Rogoff, 1983a,b, 1988) by applying the MSDSP to the economic models deemed inferior to the random walk model for exchange rate predictions. The flexibility of the MSDSP model captures the possibility of zero coefficients (sparsity), constant coefficient (dynamic shrinkage), as well as sudden and gradual parameter movements (structural change) in the time-varying parameter model setting. We also apply MSDSP in the context of Bayesian predictive synthesis (BPS) (McAlinn and West, 2019), where dynamic combination schemes exploit the information from the alternative economic models. Our analysis provide a new perspective to the Meese-Rogoff puzzle, illustrating that the economic models, enhanced with the parameter flexibility of the MSDSP, produce predictive distributions that are superior to the random walk model, even when stochastic volatility is considered.
+      </em>
+    </span>
+  </p>
+</div>
+
+  <p style="margin: 0 0 8px 0;">
+     <strong style="color: #d63384;">A Hierarchical Markov-switching Model for Bull and Bear Markets</strong>
+  </p>
+	<div>
+  <p>
+    [ Working Paper | Code ]
+     <span class="toggle-header arrow" onclick="toggleAbstract(this)">Click to expand abstract</span>
+    <span class="abstract-text" style="display: none;">
+      <em>
+The first paper integrates the hierarchical Markov-switching model with model-based clustering to address high-dimensional data challenges, aiming to identify bull and bear markets. This approach enhances both identification and forecasting performance.
+      </em>
+    </span>
+  </p>
+</div>
+	
+	
+	
+</div>
+
+
+
+  <div style="margin-bottom: 30px;" id="Other Research Experience">
+  <h3 style="color: #2c3e50;">Other Research Experience</h3>
+  <hr style="border: none; height: 1px; background-color: #ddd; margin: 8px 0;">
+
+  <p style="margin: 0 0 8px 0;">
+  <p style="margin: 0 0 8px 0;">
+     <strong style="color: #d63384;">Meta-Analysis with a General Genetic Model (Summer vacation program, 2019)</strong>
+  </p>	
+	<div>
+  <p>
+    [ <a href="https://www.dropbox.com/scl/fi/pet2wde454ogcvdiyjpfb/ZhengFan_Poster_Meta_analysis.pdf?rlkey=1n0ow25yqnae992b8m7dhs103&st=idr79p1o&dl=0" target="_blank">Poster</a> | Code ]
+     <span class="toggle-header arrow" onclick="toggleAbstract(this)">Click to expand abstract</span>
+    <span class="abstract-text" style="display: none;">
+      <em>
+Assessing the effect of the ACTN3 gene on athletic performance. Developing a widely applicable general model for studying different genetic effects.      </em>
+    </span>
+  </p>
+</div>
+
+
+  <p style="margin: 0 0 8px 0;">
+     <strong style="color: #d63384;">Global News vs. Local News with Multi-homing Consumers (Honours thesis, 2018)</strong>
+  </p>
+		<div>
+  <p>
+    [ Working Paper | Code ]
+     <span class="toggle-header arrow" onclick="toggleAbstract(this)">Click to expand abstract</span>
+    <span class="abstract-text" style="display: none;">
+      <em>
+Extending a demographic model initiated by Salop generates some suggestive theoretical results.      </em>
+    </span>
+  </p>
+</div>
+
+</div>
+
+<div style="margin-bottom: 30px;" id="conference-presentations">
+  <h3 style="color: #2c3e50;">Conference and Seminar Presentations</h3>
+  <hr style="border: none; height: 1px; background-color: #ddd; margin: 6px 0;">
+
+  <ul style="list-style-type: none; padding-left: 0; margin: 0 0 0 10px; line-height: 0.8;">
+    <p>– ESOBE 2025 (poster), Melbourne, 2025</p>
+    <p>– EcoSta 2025, Waseda University, Tokyo, 2025</p>
+    <p>– 18th CFE-CMS 2024, King's College London, 2024</p>
+    <p>– Econometric Society Australasia Meeting (ESAM), Monash University, Melbourne, 2024</p>
+    <p>– (Poster) 6th Time Series and Forecasting Symposium, University of Sydney, 2024</p>
+    <p>– Melbourne Metrics Workshop, The University of Melbourne, 2024</p>
+    <p>– (Poster) 2024 FBE Celebrating Graduate Research, The University of Melbourne, 2024</p>
+  </ul>
+</div>
+
+<br><br><br><br>
+
+<!-- GAME SECTION -->
+<div style="margin-bottom: 30px;" id="Game">
+    <h3 style="color: #2c3e50;">Take a Break</h3>
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 8px 0;">
+    <p>Need a distraction? Click inside the box below to play!</p>
+
+    <!-- BOMBERMAN GAME -->
+ 
+    <div id="bomber-game-container" class="game-container-style" tabindex="0">
+        <div id="bomber-score-display" class="score-display-style">Score: 0</div>
+
+        <div id="bomber-ui-layer" class="game-ui-layer">
+            <!-- Start Screen -->
+            <div id="bomber-start-screen" class="game-message-box" style="display: block;">
+                <h1 class="game-title">BOMBER<br>ZHENG</h1>
+                <p class="game-text">Arrows to Move<br>Space to Bomb</p>
+                <p class="game-text" style="color:#555; font-size:10px;">Find the HIDDEN GATE<br>in the blocks to advance!</p>
+                <button class="game-btn" id="btn-bomber-start" style="background:#333; border-color:#000;">START</button>
+            </div>
+            
+            <!-- Game Over Screen -->
+             <div id="bomber-game-over-screen" class="game-message-box">
+                <h1 class="game-title">GAME OVER</h1>
+                <!-- Combined Score and Level into one line -->
+                <p class="game-text">Score: <span id="bomber-final-score">0</span> | Level: <span id="bomber-final-level">1</span></p>
+                <button class="game-btn" id="btn-bomber-retry" style="background:#333; border-color:#000;">Try Again</button>
+            </div>
+        </div>
+        <canvas id="bomber-canvas" class="game-canvas-style"></canvas>
+        <!-- Hidden image loader for your face -->
+        <img id="bomber-userFace" src="" style="display:none;" alt="User Face">
+    </div>
+
+</div>
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+        <div id="ft">
+           <p>Zheng Fan &mdash;           <a href="mailto:zhengfan2015@gmail.com">zhengfan2015 <span class="circle">at</span> gmail.com</a></p> 
+        </div><!--// footer -->
+
+	</div><!-- // inner -->
+
+<footer id="footer-bar">
+  <p>&copy; Copyright 2026 Zheng Fan. All rights reserved.</p>
+</footer>
+</div><!--// doc -->
+
+
+
+<style>
+  .toggle-header {
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.95em;
+    user-select: none;
+    text-decoration: underline;
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+
+  .toggle-header:hover {
+    background-color: #f0f0f0;
+  }
+  .arrow::before {
+    content: "▸"; /* hollow right arrow */
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 1.2em;
+    transition: transform 0.2s ease;
+  }
+
+  .arrow.expanded::before {
+    content: "▾"; /* hollow down arrow */
+  }
+</style>
+
+<script>
+  function toggleAbstract(el) {
+    const abstract = el.nextElementSibling;
+    const isVisible = abstract.style.display === "block";
+    abstract.style.display = isVisible ? "none" : "block";
+    el.classList.toggle("expanded", !isVisible);
+  }
+</script>
+
+<!-- GAME SCRIPT -->
+<script>
+    /* =========================================
+       GAME: BOMBER ZHENG
+       ========================================= */
+    
+    // Configuration
+    const useImage = true; 
+    const imagePath = 'https://www.dropbox.com/scl/fi/2scdw9mpwidva5gqhayjk/Zheng-image-3.png?rlkey=bucvifqqqjkv460hxgmuyph9c&raw=1'; 
+
+    // Elements
+    const bContainer = document.getElementById('bomber-game-container');
+    const bCanvas = document.getElementById('bomber-canvas');
+    const bCtx = bCanvas.getContext('2d');
+    const bScoreEl = document.getElementById('bomber-score-display');
+    const bStartScreen = document.getElementById('bomber-start-screen');
+    const bGameOverScreen = document.getElementById('bomber-game-over-screen');
+    const bFinalScoreEl = document.getElementById('bomber-final-score');
+    const bFinalLevelEl = document.getElementById('bomber-final-level');
+    const userFaceImg = document.getElementById('bomber-userFace');
+
+    // Buttons
+    document.getElementById('btn-bomber-start').addEventListener('click', bStartGame);
+    document.getElementById('btn-bomber-retry').addEventListener('click', bResetGame);
+
+    // Variables
+    let bGridSize = 32;
+    let bCols = 15, bRows = 11;
+    let bMap = []; // 0=Empty, 1=Hard, 2=Soft
+    let bPlayer = {x:1, y:1, alive:true};
+    let bEnemies = [];
+    let bBombs = [];
+    let bExplosions = [];
+    let bScore = 0;
+    let bLevel = 1;
+    let bGate = {x:-1, y:-1, revealed: false}; // The Hidden Gate
+    let bGameState = 'START';
+    let bLoopId;
+
+    // Image Loading
+    if (useImage) {
+        userFaceImg.crossOrigin = "anonymous";
+        userFaceImg.src = imagePath;
+    }
+
+    function bResize() {
+        if (!bContainer) return;
+        bCanvas.width = bContainer.clientWidth;
+        bCanvas.height = bContainer.clientHeight;
+        // Center camera loosely by adjusting grid size or offset? 
+        // For now simple scaling
+        bGridSize = Math.floor(bCanvas.height / bRows); 
+        if (bGameState === 'START') bDraw();
+    }
+    window.addEventListener('resize', bResize);
+    setTimeout(bResize, 100);
+
+    function bInitMap() {
+        bMap = [];
+        let softBlocks = [];
+        for(let y=0; y<bRows; y++) {
+            let row = [];
+            for(let x=0; x<bCols; x++) {
+                if (y===0 || y===bRows-1 || x===0 || x===bCols-1 || (x%2===0 && y%2===0)) {
+                    row.push(1); // Hard Block
+                } else if (Math.random() < 0.4 && !(x<3 && y<3)) {
+                    row.push(2); // Soft Block (avoid start area)
+                    softBlocks.push({x:x, y:y});
+                } else {
+                    row.push(0); // Empty
+                }
+            }
+            bMap.push(row);
+        }
+        
+        // Hide the Gate
+        if (softBlocks.length > 0) {
+            let r = Math.floor(Math.random() * softBlocks.length);
+            bGate = {x: softBlocks[r].x, y: softBlocks[r].y, revealed: false};
+        } else {
+            // Fallback if map is empty
+            bGate = {x: bCols-2, y: bRows-2, revealed: true};
+        }
+    }
+
+    function bInitEntities() {
+        bPlayer = {x:1, y:1, alive:true};
+        bEnemies = [];
+        // Enemies increase with level, cap at 12
+        let targetEnemies = Math.min(3 + (bLevel - 1), 12);
+        
+        // Attempt to spawn enemies in valid locations
+        let attempts = 0;
+        while (bEnemies.length < targetEnemies && attempts < 200) {
+            attempts++;
+            let ex = Math.floor(Math.random() * bCols);
+            let ey = Math.floor(Math.random() * bRows);
+            
+            // Valid spawn if: Empty (0), far from player, and not occupied
+            if (bMap[ey][ex] === 0 && (ex > 4 || ey > 4)) {
+                 let occupied = bEnemies.some(e => e.x === ex && e.y === ey);
+                 if (!occupied) {
+                     bEnemies.push({x: ex, y: ey, dir: Math.floor(Math.random()*4)}); 
+                 }
+            }
+        }
+
+        bBombs = [];
+        bExplosions = [];
+    }
+
+    function bStartGame() {
+        bGameState = 'PLAYING';
+        bStartScreen.style.display = 'none';
+        bGameOverScreen.style.display = 'none';
+        bScoreEl.style.display = 'block';
+        bScore = 0;
+        bLevel = 1;
+        bStartLevel();
+    }
+    
+    function bStartLevel() {
+        bInitMap();
+        bInitEntities();
+        bUpdateScoreUI();
+        bContainer.focus();
+        if (bLoopId) clearInterval(bLoopId);
+        
+        // Speed Calculation: Slower start (400ms), gets faster (lower ms) per level
+        // Start at 400ms (slow), decrease by 25ms each level, fastest cap at 100ms
+        let currentSpeed = Math.max(100, 400 - (bLevel * 25));
+        bLoopId = setInterval(bGameLoop, currentSpeed); 
+    }
+
+    function bResetGame() { bStartGame(); }
+    
+    function bUpdateScoreUI() {
+        bScoreEl.innerText = `Score: ${bScore} | Level: ${bLevel}`;
+    }
+
+    function bGameOver() {
+        bGameState = 'GAMEOVER';
+        clearInterval(bLoopId);
+        bFinalScoreEl.innerText = bScore;
+        bFinalLevelEl.innerText = bLevel;
+        bGameOverScreen.style.display = 'block';
+        bScoreEl.style.display = 'none';
+    }
+
+    function bGameLoop() {
+        // Check if player entered the gate
+        if (bGate.revealed && bPlayer.x === bGate.x && bPlayer.y === bGate.y) {
+            bLevel++;
+            bScore += 100; // Level up bonus
+            bStartLevel();
+            return;
+        }
+
+        // Update Explosions
+        for(let i=bExplosions.length-1; i>=0; i--) {
+            bExplosions[i].timer--;
+            if (bExplosions[i].timer <= 0) bExplosions.splice(i, 1);
+        }
+
+        // Update Bombs
+        for(let i=bBombs.length-1; i>=0; i--) {
+            bBombs[i].timer--;
+            if (bBombs[i].timer <= 0) {
+                // Explode
+                let bx = bBombs[i].x;
+                let by = bBombs[i].y;
+                let range = 2;
+                bExplosions.push({x: bx, y: by, timer: 3}); // Center
+                
+                // Directions
+                let dirs = [{dx:0, dy:-1}, {dx:0, dy:1}, {dx:-1, dy:0}, {dx:1, dy:0}];
+                dirs.forEach(d => {
+                    for(let r=1; r<=range; r++) {
+                        let ex = bx + d.dx*r;
+                        let ey = by + d.dy*r;
+                        if (bMap[ey][ex] === 1) break; // Hard block stops fire
+                        bExplosions.push({x: ex, y: ey, timer: 3});
+                        
+                        if (bMap[ey][ex] === 2) { // Soft block destroyed
+                            bMap[ey][ex] = 0;
+                            bScore += 5;
+                            // REVEAL GATE IF THIS WAS THE GATE BLOCK
+                            if (ex === bGate.x && ey === bGate.y) {
+                                bGate.revealed = true;
+                            }
+                            bUpdateScoreUI();
+                            break; // Fire stops at soft block
+                        }
+                    }
+                });
+                bBombs.splice(i, 1);
+            }
+        }
+
+        // Check Explosion Collisions
+        // Player
+        if (bExplosions.some(e => e.x === bPlayer.x && e.y === bPlayer.y)) {
+            bGameOver(); return;
+        }
+        // Enemies
+        for(let i=bEnemies.length-1; i>=0; i--) {
+            let e = bEnemies[i];
+            if (bExplosions.some(exp => exp.x === e.x && exp.y === e.y)) {
+                bEnemies.splice(i, 1);
+                bScore += 20; 
+                bUpdateScoreUI();
+            }
+        }
+
+        // Update Enemies
+        bEnemies.forEach(e => {
+            let moves = [ {x:0, y:-1}, {x:0, y:1}, {x:-1, y:0}, {x:1, y:0} ];
+            let move = moves[e.dir];
+            let nx = e.x + move.x;
+            let ny = e.y + move.y;
+            
+            // Hit wall, bomb, or bomb? Change direction
+            if (bMap[ny][nx] !== 0 || bBombs.some(b => b.x === nx && b.y === ny)) {
+                e.dir = Math.floor(Math.random() * 4);
+            } else {
+                e.x = nx; e.y = ny;
+            }
+            // Hit player?
+            if (e.x === bPlayer.x && e.y === bPlayer.y) { bGameOver(); return; }
+        });
+
+        if (bGameState === 'PLAYING') bDraw();
+    }
+
+    function bDraw() {
+        // Clear
+        bCtx.fillStyle = "#5ea75e";
+        bCtx.fillRect(0, 0, bCanvas.width, bCanvas.height);
+
+        // Offset to center grid
+        let offsetX = (bCanvas.width - bCols*bGridSize) / 2;
+        let offsetY = (bCanvas.height - bRows*bGridSize) / 2;
+
+        // Draw GATE (Under everything else)
+        if (bGate.revealed) {
+             let px = offsetX + bGate.x*bGridSize;
+             let py = offsetY + bGate.y*bGridSize;
+             bCtx.fillStyle = "blue";
+             bCtx.fillRect(px, py, bGridSize, bGridSize);
+             bCtx.strokeStyle = "white";
+             bCtx.lineWidth = 2;
+             bCtx.strokeRect(px + 4, py + 4, bGridSize - 8, bGridSize - 8);
+        }
+
+        // Map
+        for(let y=0; y<bRows; y++) {
+            for(let x=0; x<bCols; x++) {
+                let px = offsetX + x*bGridSize;
+                let py = offsetY + y*bGridSize;
+                if (bMap[y][x] === 1) { // Hard
+                    bCtx.fillStyle = "#333";
+                    bCtx.fillRect(px, py, bGridSize, bGridSize);
+                    bCtx.strokeStyle = "#555"; bCtx.lineWidth = 1; bCtx.strokeRect(px, py, bGridSize, bGridSize);
+                } else if (bMap[y][x] === 2) { // Soft
+                    bCtx.fillStyle = "#a0522d";
+                    bCtx.fillRect(px+2, py+2, bGridSize-4, bGridSize-4);
+                }
+            }
+        }
+
+        // Bombs
+        bCtx.fillStyle = "#000";
+        bBombs.forEach(b => {
+            let px = offsetX + b.x*bGridSize + bGridSize/2;
+            let py = offsetY + b.y*bGridSize + bGridSize/2;
+            bCtx.beginPath(); bCtx.arc(px, py, bGridSize/2 - 2, 0, Math.PI*2); bCtx.fill();
+        });
+
+        // Explosions
+        bCtx.fillStyle = "orange";
+        bExplosions.forEach(e => {
+             let px = offsetX + e.x*bGridSize;
+             let py = offsetY + e.y*bGridSize;
+             bCtx.fillRect(px, py, bGridSize, bGridSize);
+        });
+
+        // Enemies
+        bCtx.fillStyle = "red";
+        bEnemies.forEach(e => {
+            let px = offsetX + e.x*bGridSize + bGridSize/2;
+            let py = offsetY + e.y*bGridSize + bGridSize/2;
+            bCtx.beginPath(); bCtx.arc(px, py, bGridSize/2 - 4, 0, Math.PI*2); bCtx.fill();
+        });
+
+        // Player
+        if (bPlayer.alive) {
+            if (useImage && userFaceImg.complete && userFaceImg.naturalHeight !== 0) {
+                 let px = offsetX + bPlayer.x*bGridSize;
+                 let py = offsetY + bPlayer.y*bGridSize;
+                 bCtx.drawImage(userFaceImg, px, py, bGridSize, bGridSize);
+            } else {
+                 bCtx.fillStyle = "white";
+                 let px = offsetX + bPlayer.x*bGridSize + bGridSize/2;
+                 let py = offsetY + bPlayer.y*bGridSize + bGridSize/2;
+                 bCtx.beginPath(); bCtx.arc(px, py, bGridSize/2 - 2, 0, Math.PI*2); bCtx.fill();
+            }
+        }
+    }
+
+    // Controls
+    bContainer.addEventListener('keydown', function(e) {
+        if (bGameState !== 'PLAYING') return;
+        let nx = bPlayer.x, ny = bPlayer.y;
+        if (e.code === 'ArrowUp') ny--;
+        else if (e.code === 'ArrowDown') ny++;
+        else if (e.code === 'ArrowLeft') nx--;
+        else if (e.code === 'ArrowRight') nx++;
+        else if (e.code === 'Space') {
+            // Drop Bomb
+            if (!bBombs.some(b => b.x === bPlayer.x && b.y === bPlayer.y)) {
+                // Calculate fuse ticks based on current level speed to ensure consistent ~1.5s explosion
+                let currentSpeed = Math.max(100, 400 - (bLevel * 25));
+                let fuseTicks = Math.ceil(3000 / currentSpeed); // 1500ms = 1.5 seconds
+                bBombs.push({x: bPlayer.x, y: bPlayer.y, timer: fuseTicks});
+            }
+            e.preventDefault();
+            return;
+        } else return;
+
+        // Check move validity
+        if (bMap[ny][nx] === 0 && !bBombs.some(b => b.x === nx && b.y === ny)) {
+            bPlayer.x = nx; bPlayer.y = ny;
+            bDraw(); // Update immediately
+        }
+        e.preventDefault();
+    });
+
+    // Simple Tap for bomb on mobile
+    bContainer.addEventListener('touchstart', function(e) {
+         bContainer.focus();
+         if (bGameState === 'PLAYING') {
+             if (!bBombs.some(b => b.x === bPlayer.x && b.y === bPlayer.y)) {
+                // Consistent 1.5s fuse calculation for touch as well
+                let currentSpeed = Math.max(100, 400 - (bLevel * 25));
+                let fuseTicks = Math.ceil(3000 / currentSpeed);
+                bBombs.push({x: bPlayer.x, y: bPlayer.y, timer: fuseTicks});
+             }
+             e.preventDefault();
+         }
+    }, {passive:false});
+
+    // Initialize
+    bInitMap();
+    bResize();
+
+</script>
+
+
+
+</body>
+</html>
